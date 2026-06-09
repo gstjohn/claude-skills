@@ -57,4 +57,4 @@ The source is in the chat because the user pasted it. Do not narrate its presenc
 
 ## Marker hygiene
 
-The numbered anchors must survive a plain-text copy (the user will paste the transform elsewhere). Use plain numerals, not color or styling alone. If superscript numerals are unavailable in the render target, use bracketed numerals [1], [2] instead. The point is that the boundary between sender and skill stays legible after copy-paste, not just on screen.
+The numbered anchors must survive a plain-text copy (the user will paste the transform elsewhere). Default to superscript numerals (¹²); they survive plain-text copy. Use plain numerals, not color or styling alone. Fall back to bracketed numerals [1], [2] only when the render target cannot display superscript at all (rare). The point is that the boundary between sender and skill stays legible after copy-paste, not just on screen.
