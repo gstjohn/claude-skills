@@ -1,0 +1,11 @@
+# Local Claude Code settings (not shared)
+.claude/settings.local.json
+
+# Built install bundles
+*.zip
+dist/
+
+# OS and editor cruft
+.DS_Store
+*.swp
+.idea/
