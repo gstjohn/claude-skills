@@ -14,6 +14,41 @@ It is not a summarizer. A summary decides what to drop. decode drops nothing: it
 
 The full operating spec is in [SKILL.md](../../skills/decode/SKILL.md) and the [references/](../../skills/decode/references/) files. The design decisions and their rationale are in [adr/](adr/), the domain language is in [CONTEXT.md](CONTEXT.md), and the research base is in [research/](research/).
 
+## Try it: example prompts to test the output
+
+Three inputs in different genres, each built to stress a different part of the design. Paste each with a trigger like "decode this:" and check the output against the listed behaviors.
+
+### 1. A frustrated message (affect, salience, the unsaid)
+
+> decode this: "honestly I'm about done with how the Saturday garden thing is being run. nobody told me the tools got moved and I burned 40 minutes hunting for them. the new sign-up sheet is a mess too, and we're out of potting soil again. can someone PLEASE just put the schedule where people actually look. I might not make it next week."
+
+What it tests:
+- **Affect as a read, not a fact** ([fidelity-rules.md](../../skills/decode/references/fidelity-rules.md)): the output should say the phrasing reads as frustrated, never "the sender is frustrated." There is no stated feeling.
+- **The unsaid stays unsaid:** the sender never says why they might miss next week. The skill must not invent a reason.
+- **Epistemic stance and precision:** "I might not make it" stays tentative, not firmed into "will not."
+- **Illocutionary force:** "can someone PLEASE just..." carries as a directive, not a yes/no question.
+- **Salience:** the buried operational facts (tools moved, out of potting soil) and the real ask (fix where the schedule lives) should rank as they do for the sender, not get lost in the venting.
+
+### 2. A contractor's update (high-stakes raise, precision, directives)
+
+> decode this: "Quick update before I order materials. The tile you picked is back-ordered, so we either wait three weeks or swap to the alternate I showed you. If we swap I can keep us on schedule and it's roughly the same cost, maybe a little less. I need your call by Friday to lock the installer. Permit came through. Don't pay the second deposit until I confirm the installer is booked."
+
+What it tests:
+- **Run-time stakes raise** ([run-protocol.md](../../skills/decode/references/run-protocol.md)): money, a hard deadline, and a "don't pay until" directive should trigger a high-stakes line stated as the action being taken (and nothing about stakes if you strip those signals out).
+- **Precision held open:** "roughly the same cost, maybe a little less" must stay vague. No invented number.
+- **Directive force and deadline:** "by Friday" and "Don't pay... until I confirm" carry as directives with their conditions intact.
+- **Salience:** the decision (wait vs swap) and the Friday deadline outrank the permit FYI.
+
+### 3. A dense technical paragraph (scaffolding, hedged claims)
+
+> decode this: "A sourdough starter is a stable symbiotic culture of wild yeast and lactic acid bacteria, kept alive by regular refreshment. The bacteria acidify the dough, dropping pH to around 3.5, which both suppresses competing microbes and conditions the gluten network for extensibility. Hydration drives fermentation speed: a stiffer starter ferments slower and tends to favor acetic over lactic acid, which is why cold, low-hydration builds often taste sharper. Most of the rise comes from the yeast, but most of the flavor is the bacteria's doing. Whether a starter is 'mature' is partly a judgment call, though bakers usually look for reliable doubling within four to six hours at room temperature."
+
+What it tests:
+- **Scaffolding, capacity-driven** ([calibration.md](../../skills/decode/references/calibration.md), [output-format.md](../../skills/decode/references/output-format.md)): technical terms (symbiotic culture, lactic acid bacteria, pH, gluten extensibility, acetic vs lactic acid) get definitions in the trailer for a lower-capacity reader and are left untouched for a fluent one. Definitions are framed as the skill's additions and are strippable.
+- **Hedged stance preserved:** "tends to favor," "often taste sharper," "partly a judgment call," "usually look for" must stay hedged, not sharpened into absolutes.
+- **Precision:** "around 3.5" and "four to six hours" carry as stated; "partly a judgment call" stays open.
+- **Positive framing** ([output-format.md](../../skills/decode/references/output-format.md)): the output narrates what it defined and what it kept open, never what it declined to do.
+
 ## Why it is built the way it is
 
 decode makes several unusual design choices. Each one traces to evidence about how human communication and comprehension actually work. The evidence base was assembled through a multi-source, adversarially-verified research process; the load-bearing findings are below with their primary sources.
