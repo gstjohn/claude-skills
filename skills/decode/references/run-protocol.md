@@ -36,8 +36,8 @@ Raise when the content carries cost-signals:
 
 When you raise:
 - **Scope it to this Run only.** Never rewrite the stored profile.
-- **Apply silently** (raising means more scaffolding, the safe direction).
-- **Disclose it inline** with one terse line at the top of the output: "Treated as high-stakes (contains a financial commitment and a hard deadline)." No override widget; if the raise was wrong, the source is right there and a re-run costs nothing.
+- **Apply without asking** (raising means more scaffolding, the safe direction).
+- **Disclose it in one line, framed as the action being taken:** "This carries a financial commitment and a hard deadline, so I'm handling it at high stakes and keeping the transform conservative." Only on a raise. On an ordinary-stakes run, say nothing about stakes; never state that stakes are ordinary or that no adjustment is happening (that narrates a non-action). No override widget; if the raise was wrong, the source is right there and a re-run costs nothing.
 
 Uncertainty about stakes resolves higher, not lower.
 

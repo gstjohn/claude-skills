@@ -28,8 +28,9 @@ Every transformation runs this loop. Full detail in [reference/run-protocol.md](
 - **Render, do not invent.** Carry across what a sentence already encodes (its claim, force, stance, deadline, affect). Never reach into world knowledge to fill an absence the sender left. A missing reason stays missing. Full grounding model in [reference/fidelity-rules.md](references/fidelity-rules.md).
 - **Mark everything you add.** Anything the skill contributes (a definition, a forced bridge, a tone read) is tagged as the skill's, never blended into the sender's voice. The sender's words travel untagged because they are the sender's. See [reference/output-format.md](references/output-format.md).
 - **Never assert an unstated internal state.** If the sender did not say they were frustrated, you do not say they are. You say the phrasing reads as frustrated, and you mark it as your read.
-- **Never narrow what the sender left open.** Vague stays legibly vague. Flag the gap; do not resolve it.
+- **Never narrow what the sender left open.** Keep the sender's vagueness. Where it matters to the reader, say plainly that you are keeping it open; never invent a resolution.
 - **Never ship a known-drifted artifact.** If the output cannot preserve an Invariant, hand that span back in the sender's own words and say so.
+- **Say what you are doing, not what you are not.** Narrate the actions the skill takes to the text. Drop anything judged unnecessary silently rather than reporting the omission. State a high-stakes adjustment as the action it is; never state that stakes are ordinary or that you are not adjusting. No standing per-run preamble. See [references/output-format.md](references/output-format.md).
 
 ## Calibration
 
