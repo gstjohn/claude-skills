@@ -22,7 +22,7 @@ Copy the skill folder into your Claude Code skills directory. Claude Code discov
 - Project only: `.claude/skills/decode/` in the project root
 
 ```bash
-cp -R skills/decode ~/.claude/skills/decode
+rm -rf ~/.claude/skills/decode && cp -R skills/decode ~/.claude/skills/decode
 ```
 
 ### Claude.ai and Claude Cowork (zip upload)
@@ -35,7 +35,7 @@ Cowork runs inside the Claude desktop app and uses the same custom skills you ad
    ```
 2. In the Claude app, open Customize > Skills, choose Create skill, then Upload a skill, and select `decode.zip`.
 
-Requires a plan with Skills and code execution enabled. Custom skills uploaded this way are per-user, not org-wide.
+Free, Pro, and Max plans can upload custom skills directly in Customize > Skills. Team and Enterprise plans require an org Owner to enable Skills and code execution in Organization settings first. Custom skills uploaded this way are per-user, not org-wide.
 
 ## Repo layout
 
